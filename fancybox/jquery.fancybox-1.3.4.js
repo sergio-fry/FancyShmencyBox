@@ -824,6 +824,11 @@
 		return this;
 	};
 
+        // Displays an element in a fancybox window
+	$.fn.showFancybox = function(options){
+		$("<a href='#"+$(this).attr("id")+"'>").fancybox(options).trigger("click").remove();
+	}
+
 	$.fancybox = function(obj) {
 		var opts;
 
