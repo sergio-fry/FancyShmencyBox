@@ -1,6 +1,8 @@
 /*
- * FancyBox - jQuery Plugin
- * Simple and fancy lightbox alternative
+ * FancyShmencyBox - jQuery Plugin
+ * fork of Fancybox 1.3.4 by Sergei O. Udalov (R.Wilco)
+ *
+ * (Simple and fancy lightbox alternative)
  *
  * Examples and documentation at: http://fancybox.net
  *
