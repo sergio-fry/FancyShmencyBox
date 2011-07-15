@@ -3,14 +3,11 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="imagetoolbar" content="no" />
-	<title>FancyShamncyBox| Demonstration</title>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script>
-		!window.jQuery && document.write('<script src="jquery-1.4.3.min.js"><\/script>');
-	</script>
+	<title>FancyShamncyBox | Demonstration</title>
+	<script type="text/javascript" src="jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="./fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
-	<script type="text/javascript" src="./fancybox/jquery.fancyshmancybox.js"></script>
-	<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	<script type="text/javascript" src="./fancybox/jquery.fancyshmencybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancyshmencybox.css" media="screen" />
  	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 		$(document).ready(function() {
@@ -90,6 +87,14 @@
 				'transitionIn'		: 'none',
 				'transitionOut'		: 'none'
 			});
+
+			$("#button1").click(function() {
+				$("#inline1").showFancybox();
+			});
+
+			$("#button2").click(function() {
+			  $("<h1>Generated html</h1>").showFancybox();
+			});
 		});
 	</script>
 </head>
@@ -146,6 +151,8 @@
 		<li><a id="various2" href="ajax.txt">Ajax</a></li>
 		<li><a id="various3" href="http://google.ca">Iframe</a></li>
 		<li><a id="various4" href="http://www.adobe.com/jp/events/cs3_web_edition_tour/swfs/perform.swf">Swf</a></li>
+		<li><button id="button1" title="Lorem ipsum dolor sit amet">Call by javascript method</button></li>
+		<li><button id="button2" title="Generated html">Generated html on the fly</button></li>
 	</ul>
 
 	<div style="display: none;">
@@ -157,6 +164,9 @@
 	<p>
 		Ajax example will not run from your local computer and requires a server to run.
 	</p>
+
+
+        
 	<p>
 		Photo Credit: <a href="http://www.flickr.com/people/kharied/">Katie Harris</a>
 	</p>

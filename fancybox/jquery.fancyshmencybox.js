@@ -824,9 +824,31 @@
 		return this;
 	};
 
-        // Displays an element in a fancybox window
-	$.fn.showFancybox = function(options){
-		$("<a href='#"+$(this).attr("id")+"'>").fancybox(options).trigger("click").remove();
+	// Displays an element in a fancybox window
+  $.fn.showFancybox = function(options){
+    if($("body *").index($(this)) == -1) {
+      var container = $("<div style=\"display: none\" />").appendTo("body");
+
+      var onClosed = function() {
+        container.remove();
+        ((options || {}).onClosed || $.noop).apply(this, arguments);
+      }
+
+      $(this).appendTo(container)
+      .showFancybox($.extend({}, options, {onClosed: onClosed}));
+
+    } else {
+      // set uniq id
+      if($(this).attr("id") == "" || $("[id='"+$(this).attr("id")+"']").length != 1){
+        var id;
+        while(!id || $("[id='"+id+"']").length > 0){
+          id = ("rand_id_" + Math.random()).replace("\.", "");
+        }
+        $(this).attr("id", id);
+      }
+
+      $("<a href='#"+$(this).attr("id")+"'>").fancybox(options).trigger("click").remove();
+    }
 	}
 
 	$.fancybox = function(obj) {
